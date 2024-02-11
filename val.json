@@ -1,0 +1,82 @@
+[
+    {
+        "input": "Write a Python code to calculate the mean of a given array.[1,2,3,4]",
+        "output": "# calculate the mean of given array\narr = [1,2,3,4]\n\ndef calc_mean(arr):\n    sum = 0\n    for num in arr:\n        sum += num\n    return sum / len(arr)\n\nprint(calc_mean(arr)) # prints 2.5"
+    },
+    {
+        "input": "Write a code to get the time difference between two date-time objects.date1: 2019-05-11 21:00:00\ndate2: 2019-05-13 10:00:00",
+        "output": "from datetime import datetime\n\ndef time_difference(date1, date2):\n    date1_obj = datetime.strptime(date1, '%Y-%m-%d %H:%M:%S')\n    date2_obj = datetime.strptime(date2, '%Y-%m-%d %H:%M:%S')\n\n    return (date2_obj - date1_obj).total_seconds() // 3600\n\nprint(time_difference('2019-05-11 21:00:00', '2019-05-13 10:00:00')) # prints 33.0"
+    },
+    {
+        "input": "Write a code to access the nth element of a linked list.",
+        "output": "# defining the Node class\nclass Node: \n\tdef __init__(self, data): \n\t\tself.data = data \n\t\tself.next = None\n\ndef getNthElement(head, n): \n\tcurrent = head \n\tcount = 0\n\n\t# looping through the linked list\n\twhile(current is not None): \n\t\tif (count == n): \n\t\t\treturn current.data \n\t\tcount += 1\n\t\tcurrent = current.next\n\treturn -1"
+    },
+    {
+        "input": "Write a code to add two linked lists of different sizes.list1 = [2->4->3]\nlist2 = [5->6->4->1]",
+        "output": "# adding two linked lists\nclass Node: \n\tdef __init__(self, data): \n\t\tself.data = data \n\t\tself.next = None\n\ndef addTwoLists(first, second):\n    # defining current and prev variables\n    prev = None\n    carry = 0\n    temp = None\n\n    # looping until one list has all nodes added\n    while(first is not None or second is not None): \n        Node = Node() \t\t# Node data\n\n        Node.data = carry + (first.data if first else 0) + (second.data if second else 0) \n\t\t\n        # update carry\n        if Node.data >= 10: \n            Node.data = Node.data % 10\n            carry = 1\n        else: \n            carry = 0\n \n        temp = Node\n        # Move first, second pointers ahead\n        if first is not None: \n            first = first.next\n        if second is not None: \n            second = second.next\n\n        # Attach the previous node to the current node\n        if prev is not None: \n            prev.next = Node \n        prev = Node\n\t\t\n    if carry > 0: \n        temp.next = Node \n        temp.data = carry \n    return result"
+    },
+    {
+        "input": "Modify the code below to make it calculate the sum of all the numbers from 1 to n.num = 5\nsum = 0\nfor i in range(num):\n  sum += i",
+        "output": "num = 5\nsum = 0\nfor i in range(1, num+1):\n  sum += i"
+    },
+    {
+        "input": "Create a program to generate a histogram using data from a set of numbers.values = [3, 4, 2, 5, 8, 1, 2, 6]",
+        "output": "import matplotlib.pyplot as plt\n\nvalues = [3, 4, 2, 5, 8, 1, 2, 6]\n\nplt.hist(values, bins= 10, edgecolor='black', color='b')\n\nplt.xlabel('Values')\nplt.ylabel('Frequency')\n\nplt.title('Histogram')\n\nplt.show()"
+    },
+    {
+        "input": "Create a function to convert Celsius to Fahrenheit.",
+        "output": "def celsius_to_fahrenheit(c):\n    f = c * (9/5) + 32\n    return f"
+    },
+    {
+        "input": "Write a function to find the number of occurrences of an element in a list.arr = [10, 20, 10, 40, 40, 40, 50]",
+        "output": "def count_occurrences(arr, element):\n    count = 0\n    for e in arr:\n        if e == element:\n            count += 1\n    return count\n\nprint(count_occurrences(arr, 40)) # Outputs: 3"
+    },
+    {
+        "input": "Generate a dictionary of 10 key-value pairs, where the key is a string and the values are random numbers from 1 to 100.",
+        "output": "import random\n\nd = dict()\n\nkeys = [\"one\", \"two\", \"three\", \"four\", \"five\", \"six\", \"seven\", \"eight\", \"nine\", \"ten\"]\n\nfor key in keys:\n    d[key] =  random.randint(1,100)\n\nprint(d)"
+    },
+    {
+        "input": "Write a Python program to remove all instances of a given value from a given list.[1, 2, 3, 2, 3, 4], 2",
+        "output": "def remove_value(nums, val):\n    res = []\n    for num in nums:\n        if num != val:\n            res.append(num)\n    return res"
+    },
+    {
+        "input": "Write a Python program to generate the first n Fibonacci numbers.",
+        "output": "def generate_fibonacci_numbers(n):\n   if n==1:\n       return [0]\n   elif n==2:\n       return [0,1]\n   else:\n       fib_list = [0,1]\n       for i in range(2,n):\n           fib_list.append(fib_list[i-1]+fib_list[i-2])\n       return fib_list"
+    },
+    {
+        "input": "Construct an if-else statement that returns \u2018even\u2019 if the given number is even and \u2018odd\u2019 if the given number is odd.",
+        "output": "if n % 2 == 0:\n    return 'even'\nelse:\n    return 'odd'"
+    },
+    {
+        "input": "Multiply two vectors of size 5 and return the output.a = [1, 2, 3, 4, 5] \nb = [5, 4, 3, 2, 1]",
+        "output": "[5, 8, 9, 8, 5]"
+    },
+    {
+        "input": "Create a list comprehension that takes all the elements of list_one and creates a new list where all the elements are doubled.list_one = [1, 2, 3, 4, 5]",
+        "output": "[x*2 for x in list_one]"
+    },
+    {
+        "input": "You are given a matrix of m rows and n columns. Write a function that calculates the transpose of the given matrix.matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]",
+        "output": "def transpose(matrix):\n    m = len(matrix)\n    n = len(matrix[0])\n\n    transpose_matrix = [[0] * m for _ in range(n)]\n    for i in range(m):\n        for j in range(n):\n            transpose_matrix[j][i] = matrix[i][j]\n\n    return transpose_matrix"
+    },
+    {
+        "input": "Given a list of numbers, print the difference between the largest and the smallest number.list_of_numbers = [10, 7, 5, 12, 4]",
+        "output": "difference = max(list_of_numbers) - min(list_of_numbers)\nprint(difference)"
+    },
+    {
+        "input": "Create a for loop that goes through every element of list_of_words and prints \u2018success\u2019 if an element is equal to \u201cexample\u201d and prints \u2018failure\u2019 in any other case.list_of_words = [\"hello\", \"example\", \"world\"]",
+        "output": "for word in list_of_words:\n    if word == \"example\":\n        print(\"success\")\n    else:\n        print(\"failure\")"
+    },
+    {
+        "input": "Create a function that takes in a list of temperatures and returns the average temperaturelist_of_temperatures = [20, 24, 26, 18]",
+        "output": "def average_temperature(temperatures):\n    num_items = len(temperatures)\n    sum_items = 0\n    for temperature in temperatures:\n        sum_items += temperature\n    return sum_items / num_items"
+    },
+    {
+        "input": "You are given a list of numbers. Create a function that returns a new list with duplicates removedlist_of_numbers = [3, 6, 5, 5, 7, 6, 3]",
+        "output": "def remove_duplicates(numbers):\n    new_list = []\n    for num in numbers:\n        if num not in new_list:\n            new_list.append(num)\n    return new_list"
+    },
+    {
+        "input": "In a given string, create a function that returns the longest consecutive sequence of characters.my_string = \u201cabccdeefghj\"",
+        "output": "def longest_consecutive(string):\n    character_list = []\n    max_length = 0\n    max_sequence = ''\n    for char in string:\n        if char in character_list:\n            continue\n        else:\n            character_list.append(char)\n            current_length = 1\n            for i in range(1, len(string)):\n                if string[i-1] == char and string[i] == char:\n                    current_length += 1\n            if current_length>max_length:\n                max_length = current_length\n                max_sequence = char*max_length\n    return max_sequence"
+    }
+]
